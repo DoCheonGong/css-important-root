@@ -1,0 +1,50 @@
+#myId {
+    color: red;
+}
+
+div.container h1 {
+    color: green;
+}
+
+h1 {
+    color: blue !important;
+}
+
+/* 
+특정성 - CSS의 적용 우선순위
+ID 선택자는 우선순위가 가장 높다 (특정성 값: 1, 0, 0, 0)
+그 다음으로 우선순위는 class, 속성, 가상클래스 선택자 순서
+특정성 값은 모두 0, 1, 0, 0
+
+요소(태그)선택자, 가상요소선택자는 가장 낮은 특정성을 가진다
+특정성 값은 모두 0, 0, 1, 0
+
+inline으로 스타일 정의 시 특정성 값은 0, 0, 0, 1
+
+CSS를 적용하는 3가지 방법
+inline = HTML의 태그에 속성값으로 CSS 부여
+internal = head 태그 안에 style이라는 태그를 사용해서 HTML 안에 적용
+external = 스타일 시트를 만들어서 외부 파일로 style 적용
+
+!important: CSS 규칙에 우선순위를 부여한다 (단, 추천하지 않는다)
+기존의 규칙들이 꼬여 스타일 관계가 복잡해지고 유지보수가 어려워진다
+*/
+:root {
+    --main-color: blue;
+    --sub-color: red;
+}
+
+/*
+var함수
+
+:root: 문서의 최상위 요소를 가리키는 CSS의 선택자
+이 위치에 선언된 변수들은 전역변수가 된다
+
+단점: mediaquery에서는 사용할 수 없다
+브라우저의 호환성이 떨어진다 (Edge에서는 적용되지 않는다)
+*/
+
+span {
+    background-color: var(--main-color);
+    color: var(--sub-color);
+}
